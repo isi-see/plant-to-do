@@ -1,0 +1,52 @@
+<!-- the main plant list -->
+{% extends "plants/master.html" %}
+
+{% block title %}
+ My Plant List
+{% endblock %}
+
+{% block content %}
+<div class="full-opacity">
+
+<h1>My Plant List</h1>
+
+ <p>Welcome! Here are your plants. Review their status to see if they need attention!</p>
+
+<!-- html list based on: https://medium.com/@biswajitpanda973/how-to-fetch-all-data-from-database-using-django-87d4e1951931 -->
+
+    <table class="green" >
+        <thead>
+            <tr>
+                <th>Plant Name</th>
+                <th>Plant Type</th>
+                <th>Room</th>
+                <th>Date added</th>
+                <th>&#128167; Date last watered</th>   <!--emoji codes -->
+                <th>&#127793; Date last fertilized</th>
+                <th>&#129716; Date last repotted</th>
+                <th>Plant Actions</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for plant in plant_list %}
+                <tr>
+                    <td><a href="{% url 'plants:plant_detail' pk=plant.id %}">{{ plant.nickname }}</a></td>  <!--link to plant detail page -->
+                    <td>{{ plant.plant_type }}</td>
+                    <td>{{ plant.get_room_display }}</td>
+                    <td>{{ plant.date_added }}</td>
+                    <td>{{ plant.date_last_watered }} <br/><i>{{ plant.date_last_watered|timesince }}</i> </td>
+                     <td>{{ plant.date_last_fertilized }} <br/> <i>{{ plant.date_last_fertilized|timesince }}</i></td>
+                      <td>{{ plant.date_last_repotted }} <br/> <i>{{ plant.date_last_repotted|timesince }}</i> </td>
+                    <td> <!-- these cells include action buttons: -->
+                         <a href="{% url 'plants:plant_update' pk=plant.pk %}"><strong>&#x270f; Update</strong></a>  <br/><br/>
+                         <a href="{% url 'plants:plant_delete' pk=plant.pk %}"> <strong>&#10060; Delete</strong></a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+
+{% endblock %}

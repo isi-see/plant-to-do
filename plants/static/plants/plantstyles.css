@@ -1,0 +1,223 @@
+
+/* --- Layout styles: --- */
+.masthead {
+  background: #f6f6e9;  /* sandy colour, matches logo bg*/
+  grid-area: masthead;
+  padding: 5px;
+}
+
+main {
+  /* background: #ffffff; */
+  grid-area: main;
+  padding: 5px;
+  padding-bottom: 100px;
+}
+
+.sidebar {
+  background: #c2e3c1;
+  grid-area: sidebar;
+  padding: 8px;
+}
+
+.pagefooter {
+    background: #a9ccb4;
+    grid-area: footer;
+    padding: 6px;
+}
+
+
+/* --- Media queries; note use of Grid for layout: --- */
+@media only screen and (min-width: 768px) {
+  .screen {
+    /* --- use 4 part-grid  -- */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+      "masthead masthead masthead masthead"
+      "main main main sidebar"
+      "footer footer footer footer";
+  }
+} /* end of media query */
+
+
+/* Class for background img*/
+
+.background-image {
+     background: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url('plant_background.jpg');  /* makes the image slightly transparent*/
+     background-size : 100% auto;
+
+}
+
+img {
+    margin: 15px;
+}
+
+.full-opacity {
+    opacity: 1;
+}
+
+/* General styling */
+
+body {
+  font-size:1.1em;
+  font-family:"Lucida Sans", Verdana, sans-serif;
+   /* color:#34495E; */
+   color: #272727;
+
+}
+
+h1{
+  text-align:left;
+  letter-spacing:1px;
+  font-size:2.5em;
+  margin:20px 0;
+}
+
+/* Table styling  */
+
+/* based loosely on https://colorlib.com/etc/tb/Table_Fixed_Header/index.html */
+.green{
+  border-collapse:collapse;
+  width:auto;
+  border-width:1px;
+  border-spacing: 50px 10px;
+  border:2px solid #02703b;
+  margin:10px;
+}
+
+.detail-table{
+    border-collapse:collapse;
+    width:auto;
+    border-width:1px;
+    border-spacing: 50px 10px;
+    border: 2px solid #02703b;
+    text-align:left;
+    padding: 5px;
+    margin:auto;
+}
+
+.green thead{
+  background:#02703b;
+}
+
+thead{
+  color:white;
+}
+
+td{
+  text-align:center;
+  padding:10px 5px;
+}
+
+th{
+  text-align:center;
+  padding:10px 5px;
+}
+
+tr{
+  text-align:center;
+  padding:10px 5px;
+}
+
+/* alternate row background colour */
+tbody tr:nth-child(even){
+  background:#f6f6e9;  /* sandy colour from masthead for more visual coherence*/
+}
+
+tbody tr:nth-child(odd){
+  background:#FFFFFF;
+}
+
+.fixed{
+  top:0;
+  position:fixed;
+  width:auto;
+  display:none;
+  border:none;
+}
+
+/* Link styles */
+
+a {
+    /*color: #2a4839;  /* dark green */
+    color: #3B1E73;  /* purple */
+}
+
+a:hover {
+  background-color: rgb(223, 223, 223);
+}
+
+a:visited {
+    /* color: #2a4448;  */
+}
+
+/* Button styling */
+
+.redbutton {
+  background-color: #a83c32; /* Red */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.greenbutton {
+  background-color: #04AA6D; /* Green */
+ border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+.redbutton:hover {
+    background-color: #db5d51;
+
+}
+
+.greenbutton:hover {
+    background-color: #27db99;
+
+}
+ /* for the plant details page layout: */
+
+.infobox {
+    background:white;
+    border: 1px solid #02703b;
+    width:auto;
+    grid-area: infobox;
+    margin-top: 20px;
+    margin-right:10px;
+    margin-left:10px;
+}
+
+.no-bullet-list {
+    list-style-type: none;
+}
+
+.detail-grid-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+    "detail-table image-details"
+    "infobox ."
+}
+
+.grid-table {
+  grid-area: detail-table;
+}
+
+.image-details {
+    grid-area: image-details;
+    text-align:center;
+    margin-right:10px;
+    margin-left:10px;
+}
+
+.actions {
+    grid-area: actions;
+}

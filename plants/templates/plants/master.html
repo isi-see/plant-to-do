@@ -1,0 +1,59 @@
+<!--the master template from which the other templates inherit layout - html and css -->
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+   <title>{% block title %}{% endblock %}</title> <!-- gets title from actual page -->
+   <link rel="stylesheet" href="{% static 'plants/plantstyles.css' %}" />
+    </head>
+
+    <body>
+    <div class="screen" > <!-- for layouting with grid -->
+
+    <header class="masthead">
+      <a href="https://iseeger.eu.pythonanywhere.com/plants/"
+          ><img
+            alt="plant to-do list logo"
+            src="{% static 'plants/plantodo_logo_crop.png' %}"
+        /></a>
+
+    </header>
+
+    <main class="background-image" >
+
+    {% block content %}
+
+    {% endblock %}
+
+    </main>
+    <aside class="sidebar">
+        <h3>User Actions</h3>
+        {% if user.is_authenticated %}
+        <p>You are logged in as user: <i>{{ request.user.username }}</i> </p>
+
+         <ul>
+             <li><a href="{% url 'plants:plant_create' %}"><strong>Add</strong> a new plant to your collection</a></li>
+             <li><a href="{% url 'plants:all' %}"><strong>View</strong> your plant collection</a></li>
+             <li><a href="{% url 'logout' %}?next={% url 'plants:open' %}">Logout</a></li>
+         </ul>
+
+        {% else %}
+        <ul>
+            <li>Please Log in</li>
+        </ul>
+
+        {% endif %}
+
+    </aside>
+
+      <footer class="pagefooter">
+      <p>See all projects here: <a href="https://iseeger.eu.pythonanywhere.com/">iseeger - Informatics - Projects 2024</a> </p>
+      </footer>
+
+    </div>
+
+</body>
+
+</html>

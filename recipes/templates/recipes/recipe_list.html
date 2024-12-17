@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Recipe List </title>
+   <link rel="stylesheet" href="{% static 'styles.css' %}" />
+    </head>
+<body>
+<h1>My Recipe List</h1>
+
+<!-- source for html list: https://medium.com/@biswajitpanda973/how-to-fetch-all-data-from-database-using-django-87d4e1951931 -->
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Recipe Name</th>
+                <th>Rating</th>
+                <th>Description</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for recipe in recipe_list %}
+                <tr>
+                    <td>{{ recipe.name }}</td>
+                    <td>{{ recipe.rating }}</td>
+                    <td>{{ recipe.detail }}</td>
+
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+<p><a href="{% url 'recipes:recipe_create' %}">Add a new recipe</a></p>
+
+<p> You can <a href="{% url 'logout' %}?next={% url 'recipes:open' %}">Logout</a> here. </p>
+</body>
+
+</html>

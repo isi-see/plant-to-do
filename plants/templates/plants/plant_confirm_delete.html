@@ -1,0 +1,19 @@
+<!-- template for deleting a plant -->
+
+{% extends "plants/master.html" %}
+
+{% block title %}
+Delete Plant
+{% endblock %}
+
+{% block content %}
+
+   <h2>Are you sure you want to delete <i>{{ plant.nickname }} ({{plant.plant_type}})</i>?</h2>
+
+    <form method="post">
+        {% csrf_token %}
+        <button class="greenbutton" type="submit">Yes, delete it</button>
+        <a class="redbutton" href="{% url 'plants:all' %}">Cancel</a>
+    </form>
+
+{% endblock %}
