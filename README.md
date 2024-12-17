@@ -73,6 +73,6 @@ There are functionalities that can be implemented to improve the app further, su
 
 ---------
 ### _About the Author_
-Isabell Seeger is a computational linguist with big tech experience who is currently in the process of getting a MLIS - Master of Libraty & Information Science. She dabbles in R and Python, but is not normally a developer. She has an interest in web publishing and design. This is her first full-stack app project. She definitely learned a lot here.
+Isabell Seeger is a computational linguist with big tech experience who is currently in the process of getting a MLIS - Master of Library & Information Science. She dabbles in R and Python, but is not normally a developer. She has an interest in web publishing and design. This is her first full-stack app project. She definitely learned a lot here.
 
 _Code or data adapted from other sources is specified in the source code and linked._
