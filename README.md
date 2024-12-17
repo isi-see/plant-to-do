@@ -19,6 +19,8 @@ Once a plant is added, the user can navigate to the plant's __detail page__ and:
 * see information about the plant type in the detail page
 * see information such as personal notes about the plant, or an image (future development)
 
+![]("static/screenshots/plantodo_main_screenshot.jpeg")
+
 ## Details
 
 ### Models
