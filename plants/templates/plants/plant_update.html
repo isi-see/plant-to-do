@@ -1,0 +1,19 @@
+<!-- template for updating a plant -->
+
+{% extends "plants/master.html" %}
+{% load static %}
+
+{% block title %}
+Update Plant
+{% endblock %}
+
+{% block content %}
+  <h2>Update Plant: {{ plant.nickname }} ({{plant.plant_type}})</h2>
+
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+     <button class="greenbutton" type="submit">Yes, update</button>
+        <a class="redbutton" href="{% url 'plants:all' %}">Cancel</a>
+  </form>
+{% endblock %}

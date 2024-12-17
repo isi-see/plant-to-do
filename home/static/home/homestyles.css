@@ -1,0 +1,83 @@
+/* --- Layout styles: --- */
+.masthead {
+  background: #e1e5f2;
+  grid-area: masthead;
+  padding: 5px;
+}
+
+main {
+  background: #ffffff;
+  grid-area: main;
+  padding: 5px;
+}
+
+.sidebar {
+  background: #ebffe5;
+  grid-area: sidebar;
+  padding: 8px;
+}
+
+
+/* --- Media queries; note use of Grid for layout: --- */
+@media only screen and (min-width: 768px) {
+  .screen {
+    /* --- use 4 part-grid  -- */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr ;
+    grid-template-areas:
+      "masthead masthead masthead "
+      "main main main ";
+    background: #427aa1;
+  }
+} /* end of media query */
+
+body{
+  font-size:1.1em;
+  font-family:"Lucida Sans", Verdana, sans-serif;
+  color:#34495E;
+}
+
+h1{
+  text-align:left;
+  letter-spacing:-2px;
+  font-size:2.5em;
+  margin:20px 0;
+}
+
+/* Table styling  */
+table{
+  border-collapse:collapse;
+  width:80%;
+  border-width:1px;
+}
+
+.blue{
+  border:2px solid #1ABC9C;
+}
+
+.blue thead{
+  background:#1ABC9C;
+}
+
+thead{
+  color:white;
+}
+
+th,td{
+  text-align:center;
+  padding:5px 0;
+}
+
+tbody tr:nth-child(even){
+  background:#ECF0F1;
+}
+
+tbody tr:hover{
+background:#BDC3C7;
+  color:#FFFFFF;
+}
+
+/* Link styles */
+a:hover {
+  background-color: rgb(223, 223, 223);
+}

@@ -1,0 +1,86 @@
+<!-- template for plant detail view -->
+<!-- based on https://www.w3schools.com/django/django_add_link_details.php -->
+
+{% extends "plants/master.html" %}
+{% load static %}
+
+{% block title %}
+Plant Detail View
+{% endblock %}
+
+{% block content %}
+
+<h1>{{ plant.nickname }} <i>({{ plant.plant_type }})</i></h1>
+<div class="detail-grid-wrapper">
+
+    <div class="grid-table">
+    <table class="detail-table">
+      <tr>
+        <th><strong>Task</strong></th>
+        <td><strong>Status</strong></td>
+        <td><strong>Recommended Schedule</strong></td>
+      </tr>
+      <tr>
+        <th><strong>&#128167; Last watered: </strong></th>
+        <td>{{ plant.date_last_watered }} (<i>{{ plant.date_last_watered|timesince }}</i>)</td>
+        <td>{{plant.get_water_schedule_display}}</td>
+      </tr>
+      <tr>
+        <th><strong>&#127793; Last fertilized: </strong></th>
+        <td>{{ plant.date_last_fertilized }} (<i>{{ plant.date_last_fertilized|timesince }}</i>)</td>
+        <td>{{plant.get_fertilize_schedule_display}}</td>
+      </tr>
+       <tr>
+        <th><strong>&#129716; Last repotted: </strong></th>
+        <td>{{ plant.date_last_repotted }} (<i>{{ plant.date_last_repotted|timesince }}</i>)</td>
+        <td>{{plant.get_repot_schedule_display}}</td>
+      </tr>
+    </table>
+
+
+     <h2>Actions:</h2>
+    <ul>
+        <li><a href="{% url 'plants:plant_update' pk=plant.pk %}">&#x270f; Update this plant</a></li>
+        <li><a href="{% url 'plants:plant_delete' pk=plant.pk %}">&#10060; Delete this plant</a></li>
+
+    </ul>
+    </div> <!-- end details/actions block -->
+
+    <div class="image-details">
+    {% if plant.image %}
+        <img src="{{ plant.image.url }}" alt="{{ plant.nickname }}">
+    {% else %}
+        <img src="{% static 'plants/no_image_available.png' %}" alt="No image available">
+    {% endif %}
+    <table class="detail-table">
+         <tr>
+            <th><strong>Date Added:</strong></th>
+            <td>{{ plant.date_added }}</td>
+        </tr>
+        <tr>
+            <th><strong>Room:</strong> </th>
+            <td> {{ plant.get_room_display }} </td>
+        </tr>
+        <tr>
+            <th><strong>Personal Notes:</strong></th>
+            <td>{{ plant.description }}</td>
+        </tr>
+    </table>
+
+    </div>   <!-- end image/details block -->
+
+
+
+    <div class="infobox">
+        <h2>&#128161; Learn about the <i>{{ plant.plant_type }}</i></h2>
+        <ul class="no-bullet-list">
+         <li><strong>Latin Name:</strong> <i>{{ plant.plant_type.latin_name }} </i></li>
+         <li><strong>Description:</strong> {{ plant.plant_type.description }}</li>
+         <li><strong>Light Needed:</strong> {{ plant.plant_type.light_needed }}</li>
+        </ul>
+    </div> <!-- end infobox block -->
+
+</div>
+
+
+{% endblock %}

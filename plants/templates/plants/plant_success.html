@@ -1,0 +1,12 @@
+
+{% extends "plants/master.html" %}
+
+{% block title %}
+New Plant Added
+{% endblock %}
+{% block content %}
+<h1>Changes implemented successfully. Yay!</h1>
+
+<p><a href="{% url 'plants:all' %}">Go back to your plant list.</a></p>
+
+{% endblock %}
