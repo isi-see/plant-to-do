@@ -1,7 +1,7 @@
 # Plant Todo App - ReadMe
 _project directory: `planttracker/plants/`_
 
-This is my first ever full stack project. It's the final project for an Informatics class on a Master's course.
+This is my first ever full stack project. It's the final project for an Informatics class on a Master's course (grade: 100%).
 
 The purpose of this app is a task tracker for houseplants. 
 All houseplants require certain tasks (watering, fertilizing, repotting) repeatedly, so in this app, the user can:
